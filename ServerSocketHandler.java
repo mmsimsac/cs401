@@ -19,6 +19,19 @@ class ServerSocketHandler extends Thread
         Socket clientSocket;
         while (true){
            // wait for incoming connectioins. Start a new Connection Thread for each incoming connection.
+           try {
+                if(s.numClients < s.MAX_CONNECTED_CLIENTS) {
+                    clientSocket = s.listener.accept();
+                    Connection c = new Connection(clientSocket, connectionList);
+                    c.start();
+                    connectionList.add(c);
+                    s.numClients++;
+                }
+                else
+                    System.out.println("Max Clients Connected!");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     
