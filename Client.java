@@ -19,7 +19,7 @@ public class Client {
 
     public static void main(String args[])
     {
-        // parse client config and server ip.
+        // parse client config and server ip. test123
         // create client object and connect to server. If successfull, print success message , otherwise quit.
         
         // Once connected, send registration info, event_type=0
