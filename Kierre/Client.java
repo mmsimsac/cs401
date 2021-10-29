@@ -7,7 +7,7 @@ import java.lang.*;
 
 public class Client {
 
-     int serverPort;
+    int serverPort;
      InetAddress ip=null; 
      Socket s; 
      ObjectOutputStream outputStream ;
@@ -17,12 +17,25 @@ public class Client {
      char FILE_VECTOR[];
      
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) throws IOException {
         //System.out.println("Running client.");
 
+        Client newClient = new Client();
+        Scanner input = new Scanner(System.in);
 
+        ObjectOutputStream clientOutputStream = new ObjectOutputStream(s.getOutputStream());
+        ObjectInputStream clientInputStream = new ObjectInputStream(s.getInputStream()); // Receive info from Connection?
 
+        try {
+            Socket s = new Socket(newClient.ip, newClient.serverPort);
+            //Scanner istream = new Scanner(s.getInputStream());
+            //PrintWriter ostream =  new PrintWriter(s.getOutputStream(), true);
+            //inputStream.readObject();
+            //outputStream.println(newClient.ip);
+
+            } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
 
 
         // parse client config and server ip. Sent from the Connection class?
@@ -39,7 +52,7 @@ public class Client {
        
     }
 
- 
-    // implement other methods as necessary
+
+        // implement other methods as necessary
 
 }
