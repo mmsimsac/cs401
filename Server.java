@@ -1,5 +1,3 @@
-// The server class will implement the functions listed in the project description. 
-
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -12,6 +10,8 @@ public class Server {
     ServerSocket listener;
     int numClients;
     ArrayList<Connection> connectionList;
+    //ServerSocket ss;
+    //Socket s;
 
     
     public Server(){
@@ -25,7 +25,7 @@ public class Server {
     public static void main(String args[])
     {
         Server server = new Server();
-        System.out.println("Started Server. Waiting for a client");
+        System.out.println("Started Server. Waiting for a client...");
         Scanner scanner = new Scanner(System.in);
 
         try {
@@ -49,7 +49,7 @@ public class Server {
                         break;
                 }
                 else if(input.equals("p")){
-                    //list client id's and file vectors
+
                 }
 
             }
@@ -60,6 +60,10 @@ public class Server {
     }
 
     // add other methods as necessaryu. For example, you will prbably need a method to print the incoming connection info.
-
-}    
+    public void printNewConnection (Connection c, Socket clientSocket){
+        System.out.println("A new client is connecting... : "+clientSocket);
+        System.out.println("Port : "+c.peerPort+"\nIP : "+c.peerIP);
+        System.out.println("Client Connected. Total registered clients : "+numClients);
+    }
+}
     
