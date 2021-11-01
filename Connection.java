@@ -57,6 +57,9 @@ class Connection extends Thread
         switch (event_type)
         {
             case 0: //client register
+                peerID = p.sender;
+                peer_listen_port = p.port_number;
+                FILE_VECTOR = p.FILE_VECTOR;
             break;
             
             case 1: // client is requesting a file 
