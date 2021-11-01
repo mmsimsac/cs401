@@ -30,8 +30,8 @@ class ServerSocketHandler extends Thread
                     s.numClients++;
                     s.printNewConnection(c,clientSocket);
                 }
-                else
-                    System.out.println("Max Clients Connected!");
+                //else
+                    //System.out.println("Max Clients Connected!");
             } catch (IOException e) {
                 e.printStackTrace();
             }
