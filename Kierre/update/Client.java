@@ -97,7 +97,7 @@ public class Client {
                 }
                 if(input.equals("q")){
                     //send quit packet to server here
-                    System.out.println("Getting ready to quit . . .");
+                    System.out.println("Getting ready to quit . . . " + client.s);
                     Packet clientQuitRequestP = new Packet();
                     clientQuitRequestP.event_type = 5; // 5 -> Client wants to quit
                     client.outputStream.writeObject(clientQuitRequestP); // Send quit packet to connection
